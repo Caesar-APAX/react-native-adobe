@@ -2,6 +2,12 @@
 
 #import <React/RCTBundleURLProvider.h>
 
+// 禁用新架构
+#ifdef RCT_NEW_ARCH_ENABLED
+#undef RCT_NEW_ARCH_ENABLED
+#endif
+#define RCT_NEW_ARCH_ENABLED 0
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

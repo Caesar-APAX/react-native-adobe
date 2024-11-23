@@ -2,7 +2,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -55,25 +55,54 @@ Now that you have successfully run the app, let's modify it.
 
    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
+## Step 4: Disabled Bridgeless mode
+
+### IOS Steps:
+
+1. edit ios/Podfile
+
+```ruby
+use_react_native!(
+    :path => config[:reactNativePath],
+    :new_arch_enabled => false, # Disabled mode
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+```
+
+2. edit ios/YourProjectName/AppDelegate.mm
+
+```objc
+#ifdef RCT_NEW_ARCH_ENABLED
+#undef RCT_NEW_ARCH_ENABLED
+#endif
+#define RCT_NEW_ARCH_ENABLED 0 // 禁用新架构
+```
+
+3. reinstall pod
+
+```sh
+cd ios
+pod install
+```
+
+### Android Steps:
+
+1. android/gradle.properties
+
+```sh
+newArchEnabled=true
+```
+
+2. clearn cache
+
+```sh
+cd android
+./gradlew clean
+cd ..
+npx react-native run-android
+```
+
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.

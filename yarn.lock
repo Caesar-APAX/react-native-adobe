@@ -2869,6 +2869,7 @@ __metadata:
     prettier: 2.8.8
     react: 18.3.1
     react-native: 0.76.3
+    react-native-webview: ^13.12.4
     react-test-renderer: 18.3.1
     typescript: 5.0.4
   languageName: unknown
@@ -5384,7 +5385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"invariant@npm:^2.2.4":
+"invariant@npm:2.2.4, invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -7817,6 +7818,19 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
+  languageName: node
+  linkType: hard
+
+"react-native-webview@npm:^13.12.4":
+  version: 13.12.4
+  resolution: "react-native-webview@npm:13.12.4"
+  dependencies:
+    escape-string-regexp: ^4.0.0
+    invariant: 2.2.4
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 23709e8d0a75a5b7a559f70fe4dfec68ded7a9d5b947d8b1ae9d2859c09b9855ff03a0bb82e8c51014444e63b9a7affea4d1de2223a4f0d5129ed1b3d98ee57a
   languageName: node
   linkType: hard
 
