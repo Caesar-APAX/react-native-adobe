@@ -6,24 +6,15 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {WebView} from 'react-native-webview';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   const url: string = 'https://vitejs.cn/vite5-cn/';
-  const backgroundStyle = {
-    flex: 1,
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+    <SafeAreaView style={{flex: 1}}>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View style={{flex: 1}}>
         <WebView
           originWhitelist={['*']}
